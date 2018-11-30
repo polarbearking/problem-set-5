@@ -27,19 +27,36 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-let space = " ";
-while (true) {
-  height = prompt("Enter an integer between 1 and 23.");
-  height=Number(height);
-  if (height<=23 && height>=1 && Number.isInteger(height)){
-    break;
-  }
+  while (true) {
+    height = prompt("Enter an integer between 1 and 23.");
+    height=Number(height);
+    if (height<=23 && height>=1 && Number.isInteger(height)) {
+      break;
+    }
 }
+
+  for (let r = 1; r <= height; r++) {
+    let row = '';
+
+    for (let s = 1; s <= (height - r); s++) {
+      row = row + ' ';
+    }
+    row = row + "#"
+    for (let h = 1; h <= r; h++) {
+      row = row + "#";
+    }
+
+
+        document.getElementById("mario-easy-output").innerHTML= row;
+        console.log(row)
+  }
+
+
+
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
 }
-
 /*
  * Mario, Again. 10 points.
  *
