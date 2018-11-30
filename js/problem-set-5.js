@@ -27,7 +27,7 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-<<<<<<< HEAD
+  let wholestuff;
   while (true) {
     height = prompt("Enter an integer between 1 and 23.");
     height=Number(height);
@@ -35,35 +35,28 @@ function mario() {
       break;
     }
 }
+let row = ""
+let space = "&nbsp;"
+let brick = "#"
 
-  for (let r = 1; r <= height; r++) {
-    let row = '';
+  for (let i = 1; i <= height; i++) {
 
-    for (let s = 1; s <= (height - r); s++) {
-      row = row + ' ';
+    for (let g = 1; g <= (height - i); g++) {
+      console.log("sammer")
+      row = row + space;
     }
-    row = row + "#"
-    for (let h = 1; h <= r; h++) {
-      row = row + "#";
+    row = row + brick
+
+    for (let k = 1; k <= i; k++) {
+      row = row + brick ;
+
     }
+    row = row + "<br/>";
 
-
-        document.getElementById("mario-easy-output").innerHTML= row;
+        document.getElementById("mario-easy-output").innerHTML= "<code>" + row + "</code>"
         console.log(row)
   }
 
-
-
-=======
-while (true) {
-  height = prompt("Enter an integer between 1 and 23.");
-  height=Number(height);
-  if (height<=23 && height>=1 && Number.isInteger(height)){
-    break;
-  }
-}
-
->>>>>>> 707d84f5252e01a520aac53b0338d5d96ce5e95d
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -97,7 +90,32 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
+  while (true) {
+    height = prompt("Enter an integer between 1 and 23.");
+    height=Number(height);
+    if (height<=23 && height>=1 && Number.isInteger(height)) {
+      break;
+    }
+}
 
+  for (let r = 1; r <= height; r++) {
+    let row = '';
+
+    for (let s = 1; s <= (height - r); s++) {
+      row = row + ' ';
+    }
+
+    row = row + "#"
+    for (let h = 1; h <= r; h++) {
+      row = row + "#";
+    }
+
+
+
+
+        document.getElementById("mario-easy-output").innerHTML= row;
+        console.log(row)
+  }
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
