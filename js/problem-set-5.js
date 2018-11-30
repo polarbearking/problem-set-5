@@ -27,7 +27,6 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-  let wholestuff;
   while (true) {
     height = prompt("Enter an integer between 1 and 23.");
     height=Number(height);
@@ -42,7 +41,6 @@ let brick = "#"
   for (let i = 1; i <= height; i++) {
 
     for (let g = 1; g <= (height - i); g++) {
-      console.log("sammer")
       row = row + space;
     }
     row = row + brick
@@ -54,7 +52,6 @@ let brick = "#"
     row = row + "<br/>";
 
         document.getElementById("mario-easy-output").innerHTML= "<code>" + row + "</code>"
-        console.log(row)
   }
 
   ////////////////////////// DO NOT MODIFY
@@ -97,25 +94,33 @@ function marioAgain() {
       break;
     }
 }
+let row = ""
+let space = "&nbsp;"
+let brick = "#"
 
-  for (let r = 1; r <= height; r++) {
-    let row = '';
+  for (let i = 1; i <= height; i++) {
 
-    for (let s = 1; s <= (height - r); s++) {
-      row = row + ' ';
+    for (let g = 1; g <= (height - i); g++) {
+      row = row + space;
+    }
+    row = row + brick
+
+    for (let k = 1; k <= i; k++) {
+      row = row + brick;
+
+    }
+    row = row + space + space;
+    row = row + brick
+    for (let k = 1; k <= i; k++) {
+      row = row + brick;
+
     }
 
-    row = row + "#"
-    for (let h = 1; h <= r; h++) {
-      row = row + "#";
-    }
+    row = row + "<br/>";
 
-
-
-
-        document.getElementById("mario-easy-output").innerHTML= row;
-        console.log(row)
+        document.getElementById("mario-hard-output").innerHTML= "<code>" + row + "</code>"
   }
+
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
