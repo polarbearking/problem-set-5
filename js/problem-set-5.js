@@ -27,6 +27,7 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+<<<<<<< HEAD
   while (true) {
     height = prompt("Enter an integer between 1 and 23.");
     height=Number(height);
@@ -53,6 +54,16 @@ function mario() {
 
 
 
+=======
+while (true) {
+  height = prompt("Enter an integer between 1 and 23.");
+  height=Number(height);
+  if (height<=23 && height>=1 && Number.isInteger(height)){
+    break;
+  }
+}
+
+>>>>>>> 707d84f5252e01a520aac53b0338d5d96ce5e95d
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -139,6 +150,13 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
+while (true) {
+  card = prompt("Enter a credit card number.")
+  card=Number(card);
+  if (Number.isInteger(card)){
+    break;
+  }
+}
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
