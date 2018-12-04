@@ -255,6 +255,30 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
+  windspeed=Number(prompt("Enter a windspeed greater than or equal to 0"))
+
+  if (windspeed>=157 && Number.isInteger(windspeed)) {
+    document.getElementById("hurricane-output").innerHTML= "Category 5 " + "Hurricane."
+  }
+  if (windspeed>=130 && windspeed<=156 && Number.isInteger(windspeed)) {
+    document.getElementById("hurricane-output").innerHTML= "Category 4 " + "Hurricane."
+  }
+  if (windspeed>=111 && windspeed<=129 && Number.isInteger(windspeed)) {
+    document.getElementById("hurricane-output").innerHTML= "Category 3 " + "Hurricane."
+  }
+  if (windspeed>=96 && windspeed<=110 && Number.isInteger(windspeed)) {
+    document.getElementById("hurricane-output").innerHTML= "Category 2 " + "Hurricane."
+  }
+  if (windspeed>=74 && windspeed<=95 && Number.isInteger(windspeed)) {
+    document.getElementById("hurricane-output").innerHTML= "Category 1 " + "Hurricane."
+  }
+  if (windspeed>=39 && windspeed<=73 && Number.isInteger(windspeed)) {
+    document.getElementById("hurricane-output").innerHTML= "Tropical Storm."
+  }
+  if (windspeed<=38) {
+    document.getElementById("hurricane-output").innerHTML= "The skies " + "are " + "calm..."
+  }
+
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
@@ -297,6 +321,26 @@ function gymnastics() {
    *       scores.push(firstScore);   // your variable names for your scores
    *       scores.push(secondScore);  // will likely be different than mine
    */
+   let entries=1
+   while (entries<=6){
+      let scoreInput=Number(prompt("Enter a score between 1.00 and 10.00"))
+      if (scoreInput>=1 && scoreInput<=10 && Number.isInteger(scoreInput)){
+        scores.push(scoreInput)
+      entries++
+      }
+   }
+scores.sort(function(a,b){return a-b;})
+let max=scores[5]
+let min=scores[0]
+let newScores=[]
+
+let i=1
+while (i<=6){
+  newScores.push(scores[i])
+  i++
+}
+let averageScore=((newScores[0]+newScores[1]+newScores[2]+newScores[3])/4).toFixed(2);
+document.getElementById("gymnastics-output").innerHTML= "Discarded: " + min + ", " + max + "<br/>Score: " + averageScore
 
   /////////////////////////////// DO NOT MODIFY
   check('gymnastics', scores); // DO NOT MODIFY
@@ -349,6 +393,42 @@ function reportCard() {
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+   while(true) {
+     let testinput=Number(prompt("Enter test scores and then enter -1 when done."))
+     if (testinput>=0 && testinput<=100 && Number.isInteger(testinput)){
+       testTotal = testinput + testTotal
+       tests ++
+     } else if (testinput==-1) {
+       break;
+     }
+   }
+
+   while(true) {
+     let quizinput=Number(prompt("Enter quiz scores and then enter -1 when done."))
+     if (quizinput>=0 && quizinput<=100 && Number.isInteger(quizinput)){
+       quizTotal = quizinput + quizTotal
+       quizzes ++
+     } else if (quizinput==-1) {
+       break;
+     }
+   }
+
+   while(true) {
+     let homeworkinput=Number(prompt("Enter homework scores and then enter -1 when done."))
+     if (homeworkinput>=0 && homeworkinput<=100 && Number.isInteger(homeworkinput)){
+       homeworkTotal = homeworkinput + homeworkTotal
+       homeworks ++
+     } else if (homeworkinput==-1) {
+       break;
+     }
+   }
+
+let tAverage=(testTotal/tests).toFixed(2)
+let qAverage=(quizTotal/quizzes).toFixed(2)
+let hAverage=(homeworkTotal/homeworks).toFixed(2)
+let finalGrade=((tAverage*.6)+(qAverage*.3)+(hAverage*.1)).toFixed(2)
+
+document.getElementById("report-card-output").innerHTML= "Tests: " + tAverage + "<br/>Quizzes: " + qAverage + "<br/>Homework: " + hAverage + "<br/>Grade: " + finalGrade
 
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
