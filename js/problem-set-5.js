@@ -173,14 +173,40 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-while (true) {
-  card = prompt("Enter a credit card number.")
-  card=Number(card);
-  if (Number.isInteger(card)){
-    break;
+  let oddSum=0
+  let evenSum=0
+  while (true){
+    card=prompt("Enter a credit card number");
+    if ((card.length==16 || card.length==15 || card.length==13) && Number.isInteger(Number(card))){
+      break;
+    }
   }
-}
+  for(let i=card.length-2;i>=0;i-=2) {
+    let digit=Number(card[i])*2;
+    let stringNumber=digit.toString();
+    let sumofNumbers=0;
+    for (let j=0;j<stringNumber.length;j++){
+      sumofNumbers=sumofNumbers+Number(stringNumber[j]);
+      }
+      evenSum=sumofNumbers+evenSum;
+    }
+    for(let k=card.length-1; k>=0;k-=2){
+      oddSum=oddSum+Number(card[k])
+    }
 
+if (card.length==15 && (card[0]==3 &&(card[1]==7 || card[1]==4)) && (oddSum+evenSum)%10==0){
+  document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
+}
+else if ((card.length==13 || card.length==16) && card[0]==4 && (oddSum+evenSum)%10==0){
+  document.getElementById("credit-output").innerHTML="<img src ='./images/visa.png'/>";
+}
+else if (card.length==16 && (card[0]==5 && (card[1]==1 || card[1]==2 || card[1]==4 || card[1]==5)) && (oddSum+evenSum)%10==0){
+  document.getElementById("credit-output").innerHTML="<img src ='./images/mastercard.png'/>";
+}
+else {
+  document.getElementById("credit-output").innerHTML="<img src ='./images/invalid.png'/>";
+}
+card=Number(card)
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -219,7 +245,28 @@ while (true) {
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
-
+let randomNumber = Math.floor(Math.random()*999) + 1;
+let guessedNumber
+let attempts = 0
+let answer = false
+while (answer == false) {
+  guessedNumber = Number(prompt("Guess what the random number is."))
+  if (guessedNumber>=1 && guessedNumber<=1000 && Number.isInteger(guessedNumber)){
+    if (guessedNumber == randomNumber) {
+      attempts++
+      answer = true
+      document.getElementById("guess-output").innerHTML= "Number: " + randomNumber + "<br/>Attempts: " + attempts;
+    }
+    if (guessedNumber>randomNumber){
+      attempts++
+      alert("The number is lower.")
+    }
+    if (guessedNumber<randomNumber){
+      attempts++
+      alert("The number is higher.")
+    }
+  }
+}
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
